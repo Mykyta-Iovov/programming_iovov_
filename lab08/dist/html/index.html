@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторна робота: Титульна сторінка</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лабораторна робота
+   &#160;<span id="projectnumber">0.8</span>
+   </div>
+   <div id="projectbrief">Демонстрація документування коду засобами `doxygen`</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Лабораторна робота Документація</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="autotoc_md0"></a>
+Лабораторна робота № 8</h1>
+<h2><a class="anchor" id="autotoc_md1"></a>
+1 Вимоги</h2>
+<h3><a class="anchor" id="autotoc_md2"></a>
+1.1 Розробник</h3>
+<dl class="section author"><dt>Автор</dt><dd>Іовов Микита ( КН-923Б)</dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>25.11.2023</dd></dl>
+<dl class="section version"><dt>Версія</dt><dd>1.8.17</dd></dl>
+<h3><a class="anchor" id="autotoc_md3"></a>
+1.2 Загальне завдання</h3>
+<p>Розробити повноцінний звіт для лабораторної роботи “Функції”, що присвячена функціям у двох форматів (+їх репрезентація у PDF форматі).</p>
+<h3><a class="anchor" id="autotoc_md4"></a>
+1.3 Додаткове завдання складного рівня</h3>
+<p>Реалізувати функцію (та продемонструвати її роботу), що визначає, скільки серед заданої послідовності чисел таких пар, у котрих перше число більше наступного, використовуючи функцію з варіативною кількістю аргументів. • Наприклад, при вхідних даних { 3, 2, 4, 3, 1 }, результат повинен бути 3 (тобто наступні пари чисел: 3, 2, 4, 3, 3, 1).</p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+2 Опис програми</h2>
+<h3><a class="anchor" id="autotoc_md6"></a>
+2.1 Функціональне призначення</h3>
+<p>Програма визначає кількість пар чисел, де одне число більше наступного.</p>
+<h3><a class="anchor" id="autotoc_md7"></a>
+2.2 Обмеження на застосування</h3>
+<p>Програма розраховує лише послідовності цілих чисел з парною кількістю елементів.</p>
+<h3><a class="anchor" id="autotoc_md8"></a>
+2.3 Опис логічної структури</h3>
+<p>Програма використовує підхід програмування, що базується на процедурах, і включає дві функції:</p>
+<ul>
+<li><a class="el" href="mainf_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Точка входу програми.">main()</a>: Основна функція програми, де ініціалізується функція "count_of_pairs" з вказаними аргументами для обчислення кількості пар.</li>
+<li>код: <div class="fragment"><div class="line">int main() {</div>
+<div class="line">  int result = count_of_pairs(3, 4, 3, 3, 4, 2);</div>
+<div class="line"> </div>
+<div class="line">  return 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --></li>
+<li><a class="el" href="maint_8c.html#a698c3f013d64740c73edd49bd76ed712" title="Функція для знаходження кількості пар.">count_of_pairs()</a>: Функція, яка визначає кількість пар, де одне число більше наступного</li>
+</ul>
+<div class="fragment"><div class="line">int count_of_pairs(int count, ...) {</div>
+<div class="line">  int resultat = 0;</div>
+<div class="line">  va_list args;</div>
+<div class="line">  va_start(args, count);</div>
+<div class="line"> </div>
+<div class="line">  for (int i = 0; i &lt; count - 1; ++i) {</div>
+<div class="line">    int potochne = va_arg(args, int);</div>
+<div class="line">    int nastupne = va_arg(args, int);</div>
+<div class="line"> </div>
+<div class="line">    if (potochne &gt; nastupne) {</div>
+<div class="line">      resultat++;</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">  </div>
+<div class="line">  va_end(args); </div>
+<div class="line">  return resultat;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md9"></a>
+2.2.3 Структура проекту</h3>
+<p><img src="/home/osboxes/Projects_for_HPi/programming-Iovov_/lab08/doc/assets/tree_of_project.png" alt="Рисунок 1 - Структура проекту" class="inline"/></p>
+<h3><a class="anchor" id="autotoc_md10"></a>
+2.4 Важливі фрагменти програми</h3>
+<p>Головна функція: У функції '<a class="el" href="mainf_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Точка входу програми.">main()</a>' ініцілізується фунція count_of_pairs, яка призначена для підрахунку кількості пар у заданій послідовності чисел, де перше число в парі більше за наступне:</p>
+<div class="fragment"><div class="line">int main() {</div>
+<div class="line">    int result = count_of_pairs(3, 4, 3, 3, 4, 2);</div>
+<div class="line">    return 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><ul>
+<li><a class="el" href="maint_8c.html#a698c3f013d64740c73edd49bd76ed712" title="Функція для знаходження кількості пар.">count_of_pairs()</a>: Функція count_of_pairs визначає пари чисел у заданому списку використовуючи варіативні аргументи та перевіряє, чи перше число в парі менше за наступне.:</li>
+</ul>
+<div class="fragment"><div class="line">int count_of_pairs(int count, ...) {</div>
+<div class="line">    int resultat = 0;</div>
+<div class="line">    va_list args;   // Tип даних, який використовується для роботи зі змінним списком аргументів у функції.</div>
+<div class="line">    va_start(args, count); // Функція ініціалізує змінну типу va_list, задаючи вказівник args на перший змінний аргумент.</div>
+<div class="line"> </div>
+<div class="line">    for (int i = 0; i &lt; count - 1; ++i) {</div>
+<div class="line">        int potochne = va_arg(args, int); //функція, якa використовується для отримання наступного аргумента із списку.</div>
+<div class="line">        int nastupne = va_arg(args, int);</div>
+<div class="line"> </div>
+<div class="line">        if (potochne &gt; nastupne) {</div>
+<div class="line">            resultat++;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">  </div>
+<div class="line"> </div>
+<div class="line">    va_end(args);</div>
+<div class="line">    return resultat;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md11"></a>
+2 Варіанти використання</h1>
+<p>Для представлення виконання кожного завдання використовується:</p>
+<ul>
+<li>послідовне виконання програми в інструменті lldb;</li>
+<li>виведення результатів у консоль за допомогою функції виводу.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md12"></a>
+Варіант використання 1</h3>
+<p>Інструкція для запуску програми у режимі відлагодження:</p>
+<ul>
+<li>Виклик програми у відлагоджувачі lldb mains.bin;</li>
+<li>Встановлення точки зупинки на функції main (рядок return 0);</li>
+<li>Запуск програми за допомогою команди r.</li>
+</ul>
+<p><img src="/home/osboxes/Projects_for_HPi/programming-Iovov_/lab08/doc/assets/result.png" alt="Рисунок 2 - Скріншот виводу програми" class="inline"/></p>
+<h3><a class="anchor" id="autotoc_md13"></a>
+Результат:</h3>
+<p>Як бачимо, реультат програми є 2, що є правильною відповідю.</p>
+<h1><a class="anchor" id="autotoc_md14"></a>
+Висновок</h1>
+<p>Наданий код виконує функцію підрахунку кількості пар в послідовності чисел. Ця програма реалізована мовою програмування C і використовує вбудовану бібліотеку &lt;stdarg.h&gt; для роботи зі змінним списком аргументів у функції. Логіка роботи програми полягає в порівнянні кожного числа з наступним у послідовності і підрахунку пар, в яких перше число бідьше наступного. Результат виводиться у змінну result у функції <a class="el" href="mainf_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Точка входу програми.">main()</a>.Важливою особливістю є обмеження програми лише розрахунками для послідовностей з парною кількістю елементів.При виконанні програми із вказаним вхідним набором даних {4, 3, 3, 4, 2} отримується результат 2, що вказує на кількість пар, де перше число більше наступного.</p>
+<div class="fragment"><div class="line">/**</div>
+<div class="line"> * @file mains.c</div>
+<div class="line"> * @brief Програма для рахування кількості слів у тексті.</div>
+<div class="line">*/</div>
+<div class="line"> </div>
+<div class="line">/**</div>
+<div class="line"> * @brief Функція для рахування кількості слів у тексті.</div>
+<div class="line"> * </div>
+<div class="line"> * @details Функція приймає текст і повертає кількість слів у тексті.</div>
+<div class="line"> * Функція ігнорує знаки оклику, знак питання, пробіли, табуляції, смиволи нового рядка.</div>
+<div class="line"> * </div>
+<div class="line"> * @param tetx  Масив тексту.</div>
+<div class="line"> * @return  Кількість слів у тексті.</div>
+<div class="line"> * </div>
+<div class="line">*/</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">int count_of_words(char text[]) {</div>
+<div class="line"> </div>
+<div class="line">  int result = 0; //Змінна для зберігання кількості слів</div>
+<div class="line">  int isWord = 0; // Флаг, який вказує, чи розпочалось слово</div>
+<div class="line">  for (int i = 0; text[i] != &#39;\0&#39;;</div>
+<div class="line">       i++) { //Перевірка   кожного символа рядка до завершення рядка</div>
+<div class="line"> </div>
+<div class="line">    //Перевірка на пробіли, табуляції та символом нового рядка, а також  на знак</div>
+<div class="line">    //оклику, питання</div>
+<div class="line">    if (text[i] != &#39; &#39; &amp;&amp; text[i] != &#39;\t&#39; &amp;&amp; text[i] != &#39;\n&#39; &amp;&amp;</div>
+<div class="line">        text[i] != &#39;!&#39; &amp;&amp; text[i] != &#39;?&#39;) {</div>
+<div class="line">      if (!isWord) {</div>
+<div class="line">        result++;</div>
+<div class="line">        isWord = 1;</div>
+<div class="line">      }</div>
+<div class="line">    } else { //Якщо поточний символ дорівнює пробілу, табуляції або символу</div>
+<div class="line">             //рядка, то слово закінчилось</div>
+<div class="line">      isWord = 0;</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">  return result;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">/**</div>
+<div class="line"> * @brief Точка входу в програму.</div>
+<div class="line"> * @details Точка входуЮ де викликається функція count_of_words для демонстрації її роботи.</div>
+<div class="line"> * </div>
+<div class="line"> * @param argc Кількість аргументів командного рядка.</div>
+<div class="line"> * </div>
+<div class="line"> * @param argv Масив аргументів командного рядка.</div>
+<div class="line"> * @return Завершення програми.</div>
+<div class="line">*/</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">int main(int argc, char *argv[]) {</div>
+<div class="line">  char *text;</div>
+<div class="line">  int result;</div>
+<div class="line">  if (argc &gt; 1) {</div>
+<div class="line">    text = argv[1]; // Використовувати текст з аргументу командного рядка</div>
+<div class="line">  } else {</div>
+<div class="line">    text = &quot;Hello world&quot;; // &quot;Hello world&quot; Є за замовчуванням</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  result = count_of_words(text);</div>
+<div class="line">  return 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

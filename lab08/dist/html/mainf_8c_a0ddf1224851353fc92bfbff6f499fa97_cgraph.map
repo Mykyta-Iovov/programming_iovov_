@@ -1,0 +1,5 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title="Точка входу програми." alt="" coords="5,42,60,69"/>
+<area shape="rect" id="node2" href="$mainf_8c.html#a4cba7b2c62a211ca9f911b0f6bb70186" title="Функція для генерації випадкового числа від 1 до 10." alt="" coords="108,5,291,47"/>
+<area shape="rect" id="node3" href="$mainf_8c.html#a7bbeb701f3e81f6013b8bf16c7d65d43" title="Функція для перевірки числа чи є воно простим" alt="" coords="158,71,241,98"/>
+</map>
