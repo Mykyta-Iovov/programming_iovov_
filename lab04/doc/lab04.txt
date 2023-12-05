@@ -1,0 +1,98 @@
+Іовов Микита Павлович
+Лабораторна Робота №4
+Розробка програм, що розгалужуються 
+
+Хід роботи 
+
+1.Створив нову папку lab04 
+2.Перемістив потрібні файли для роботи в папку lab04 після чого отримали таку структуру директорій:
+
+└── lab04
+       ├── Makefile 
+       ├── README.md 
+       ├── doc 
+               │ └── lab04.txt 
+        └── src 
+               └── main.c
+3.Зайшов до файлу main.c і почав роботу;
+4.Оголосив змінні k, m, n   для зберігання цілих чисел;
+5.Створив змінну result для зберігання результату обміну;
+6. Оголосив початкові значення змінних 
+int initial_k = k;
+      int initial_m = m;
+      int initial_n = n;
+7. Скористався умовним оператором if, щоб задати першу умову:
+Якщо k > m,  то буде відбуватися обмін значенням k i m;
+8. Створюємо тимчасову змінну result і записуємо в неї значення k для зберігання початкового значення цієї змінної перед обміном;
+9. Значенню змінної k присвоїли значення змінної m;
+10. Значенню змінної m присвоюється тимчасове значення result, яке було збережено раніше. Тепер m містить початкове значення k, і значення змінних k і m буде обмінено;
+11.Ввели команду gcc main.c -o myProgram. Після чого створився файл myProgram;
+
+
+12.Скомпілював код за допомогою команди make all:
+
+rm -rf dist
+mkdir dist
+clang  -std=gnu11 -g -Wall -Wextra -Werror -Wformat-security -Wfloat-equal -Wshadow -Wconversion -Wlogical-not-parentheses -Wnull-dereference -Wno-unused-variable -Wno-implicit-int-float-conversion -Werror=vla  src/main.c -o ./dist/main.bin
+clang-format --verbose -dry-run --Werror src/*
+Formatting src/a.out
+Stack dump:
+0. Program arguments: clang-format --verbose -dry-run --Werror src/a.out src/main.c src/myProgram 
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(_ZN4llvm3sys15PrintStackTraceERNS_11raw_ostreamE+0x1f)[0x7f3d9b8fe4ff]
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(_ZN4llvm3sys17RunSignalHandlersEv+0x50)[0x7f3d9b8fc7b0]
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(+0x981ac5)[0x7f3d9b8feac5]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7f3da20cd420]
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(_ZNK4llvm9SourceMgr10GetMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEE+0xe5)[0x7f3d9b8a2795]
+clang-format[0x40916d]
+clang-format[0x406b64]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3)[0x7f3d9aa61083]
+clang-format[0x40652e]
+Segmentation fault (core dumped)
+make: *** [Makefile:15: check] Error 139
+
+
+Код програми:
+#include <stdio.h>
+
+int main() {
+    
+    // Оголошуємо та ініціалізуємо змінні для зберігання цілих чисел 
+    int k = 10;
+    int m = 5;
+    int n = 3;
+    
+    // Змінна для збереження результату обміну
+    int result;
+    
+    // Виводимо початкові значення змінних
+    int initial_k = k;
+    int initial_m = m;
+    int initial_n = n;
+    
+    // Перевірка та обмін значень змінних, щоб виконувалася умова k <= m <= n
+    
+    // Якщо k > m, то відбувається обмін значень m та k
+    if (k > m) {
+        result = k;
+        k = m;
+        m = result;
+    }
+    
+    // Якщо m > n, то відбувається обмін значень m та n
+    if (m > n) {
+        result = m;
+        m = n;
+        n = result;
+    }
+    
+    // Якщо k > m, то відбувається обмін значень k та m
+    if (k > m) {
+        result = k;
+        k = m;
+        m = result;
+    }
+    
+    
+    
+    return 0;
+}
