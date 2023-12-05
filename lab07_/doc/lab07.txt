@@ -1,0 +1,391 @@
+Іовов Микита Павлович
+Лабораторна Робота №7
+Функції
+Хід роботи 
+-	Створив нову папку lab07
+
+-  Перемістив потрібні файли для роботи в папку lab07 після чого отримали таку структуру директорій:
+
+└── lab07
+ ├── Makefile 
+├── README.md 
+├── doc 
+ │        └── lab07.txt
+ └── src 
+          └── main.c
+
+Лабораторна робота №5
+1)	Зайшов до файлу main.c і почав роботу;
+
+Вихідний код програми знаходиться у файлі main.c. 
+Точка входу в програму - це функція  main(). Ця функція є основною точкою входу в програму, яка виконує всі необхідні обчислення та операції.
+2)	Створили функцію generaciya_randomnogo_chysla для генерації рандомного числа від 1 до 10.
+3)	Потім створили функцію Perevirka для перевірки чи є число простим чи ні.
+Скористався умовним оператором if:
+  if (num <= 1) {
+    result = 0;
+Якщо число <= 1, то змінна result = 0.
+4)	У блоці else ми використовуємо цикл for. 
+int i = 2;: Спочатку визначається змінна “I” i дорівнює 2. Це стартове значення для ітерації. В даному випадку, ми починаємо перевірку з поточного значення i рівного 2.
+5)	i * i <= num;: Це умова циклу. Поки ця умова виконується (тобто квадрат i менше або дорівнює числу num), цикл продовжує виконувати своє тіло. Це означає, що цикл буде тривати до тих пір, поки i не стане більше або рівним квадратному кореню числа num.
+6)	i++: Після кожної ітерації циклу значення змінної i збільшується на 1. Це означає, що на кожній новій ітерації цикл перевіряє наступне число (наприклад, з 2 переходить до 3, потім до 4 і так далі), і перевірка продовжується до тих пір, поки умова циклу не стане невірною.
+7)	Функція буде повертати значення result.
+8)	Після чого у основній функції ініціалізуємо генератор випадкових чисел зі значенням часу.
+9)	У основній функції ініцілізував змінну num яка буде дорівнювати за замовчуванням 3.
+10)	Скористалися умовним оператором if:
+
+
+Якщо кількість аргументів аргументів командного рядка більше 1, то означає, що користувач передав аргумент під час запуску програми.
+11)	Оголосив показчик endptr, який буде використовуватися функцією strtol для визначення позначення кінця числа в рядку.
+12)	long parsed_value = strtol(argv[1], &endptr, 10);: Використовує функцію strtol для перетворення аргумента командного рядка (argv[1]) у десяткове ціле число. Значення зберігається у змінній parsed_value. Функція strtol також записує в покажчик endptr адресу першого неперетвореного символу.
+13)	if (*endptr != '\0' || parsed_value > RAND_MAX || parsed_value < 0) { ... }: Перевіряє, чи відбулося коректне перетворення рядка в число. Умова (parsed_value > RAND_MAX || parsed_value < 0) перевіряє, чи число не виходить за межі допустимого діапазону (для вашого випадку, якщо воно виходить за межі діапазону int, що знаходиться від 0 до RAND_MAX).
+14)	num = (int)parsed_value;: Якщо аргумент було успішно перетворено і його значення в межах допустимого діапазону, то встановлюємо значення num рівним перетвореному числу.
+15)	 Якщо аргумент не було передано, викликається функція generaciya_randomnogo_chysla(), яка генерує випадкове число для num.
+16)	Викликаємо функцію int result = Perevirka(num), яка буде  викликати функцію Perevirka для перевірки, чи є число num простим.
+17)	Задали умову, якщо  змінна num буде дорівнювати 1, то число є простим.
+18)	В інакшому випадку змінна num буде дорівнювати 0.
+19)	Ввели команду gcc main.c -o myProgram. Після чого створився файл myProgram.
+20)	Скомпілював код за допомогою команди make all:
+osboxes@osboxes:~/Untitled Folder/lab07_Test_Project (copy)/Test_project_Lab06/dist$ lldb main.bin
+
+(lldb) target create "main.bin"
+
+Current executable set to '/home/osboxes/Untitled Folder/lab07_Test_Project (copy)/Test_project_Lab06/dist/main.bin' (x86_64).
+
+(lldb) b 36
+
+Breakpoint 1: where = main.bin`main + 77 at main.c:36:3, address = 0x000000000040123d
+
+(lldb) r
+
+Process 2987 launched: '/home/osboxes/Untitled Folder/lab07_Test_Project (copy)/Test_project_Lab06/dist/main.bin' (x86_64)
+
+Process 2987 stopped
+
+* thread #1, name = 'main.bin', stop reason = breakpoint 1.1
+
+    frame #0: 0x000000000040123d main.bin`main(argc=1, argv=0x00007fffffffdf48) at main.c:36:3
+
+   33  	  }
+
+   34  	
+
+   35  	  result = count_of_words(text);
+
+-> 36  	  return 0;
+
+   37  	}
+
+(lldb) p result 
+
+(int) $0 = 2
+
+
+
+21)	Перевіримо роботу коду за допомогою lldb:
+osboxes@osboxes:~/Untitled Folder/lab07_Test_Project (copy)/Test_Project_Lab05/dist$ lldb main.bin
+(lldb) target create "main.bin"
+Current executable set to '/home/osboxes/Untitled Folder/lab07_Test_Project (copy)/Test_Project_Lab05/dist/main.bin' (x86_64).
+(lldb) b 58
+Breakpoint 1: where = main.bin`main + 188 at main.c:58:3, address = 0x00000000004012cc
+(lldb) r
+Process 3125 launched: '/home/osboxes/Untitled Folder/lab07_Test_Project (copy)/Test_Project_Lab05/dist/main.bin' (x86_64)
+Process 3125 stopped
+* thread #1, name = 'main.bin', stop reason = breakpoint 1.1
+    frame #0: 0x00000000004012cc main.bin`main(argc=1, argv=0x00007fffffffdf48) at main.c:58:3
+   55  	    // число не є простим
+   56  	  }
+   57  	
+-> 58  	  return 0;
+   59  	}
+(lldb) p result 
+(int) $0 = 0
+(lldb) p num
+(int) $1 = 4
+(lldb)
+
+Як бачимо, код  коректно визначає випадкове число чи є воно простим.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Код програми:
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int generaciya_randomnogo_chysla() {
+    return (rand() % 10) + 1;
+}
+
+int Perevirka(int num) {
+    int result = 1; // Початкове значення result - 1 (припускаємо, що число є простим)
+
+    if (num == 0) {
+        return 0; // Число нуль не є простим
+    }
+
+    // Перевірка чи є число менше або дорівнює 2
+    if (num <= 1) {
+        result = 0; // Якщо число менше або дорівнює 1, то воно не є простим
+    } else {
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                result = 0; // Знайдено дільник, отже число не є простим
+                break;
+            }
+        }
+    }
+
+    return result;
+}
+
+int main(int argc, char *argv[]) {
+    srand((unsigned int)time(NULL));
+
+    int num = 2;
+    if (argc > 1) {
+        // Якщо передано аргумент з командного рядка, використати його
+        char *endptr;
+        long parsed_value = strtol(argv[1], &endptr, 10);
+
+        if (*endptr != '\0' || parsed_value > RAND_MAX || parsed_value < 0) {
+            // Помилка перетворення або число виходить за межі допустимого діапазону
+            return 1;
+        }
+        num = (int)parsed_value;
+    } else {
+        // Якщо аргумент не передано, згенерувати випадкове число
+        num = generaciya_randomnogo_chysla();
+    }
+
+    int result = Perevirka(num);
+
+    if (result == 1) {
+        // число є простим
+         
+    } else {
+        // число не є простим
+       
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+1.	Лабораторна робота №6
+1)	Зайшов до файлу main.c і почав роботу;
+Вихідний код програми знаходиться у файлі main.c. 
+
+Вихідний код програми знаходиться у файлі main.c. Точка входу в програму - це функція int main(). Ця функція є основною точкою входу в програму, яка виконує всі необхідні обчислення та операції.
+
+2)	Створили функцію int count_of_words для підраахунку кількісті слів  у масиві. Для того, щоб порахувати кількість слів у масиві скористаємося циклом for:
+Перебираємо всі елементи масиву до тих пір поки масив не закінчиться.
+Задаємо умову: якщо елемент масиву змінної text дорівнює пробілу, табуляції, переходу на інший рядок, окличному знаку і знаку питання, то виконується інша умова:
+Якщо слово почалося, то додаємо 1 до змінної result, й змінна isWord буде дорівнювати 1.
+В інакшому випадку, якщо поточний символ дорівнює пробілу, табуляції або символу рядка, то слово закінчилось.
+Функція буде повертати значення result.
+3)	 argc (аргумент count) - це кількість аргументів, які передаються програмі через командний рядок під час запуску. Кількість аргументів включає ім'я програми (перший аргумент).
+4)	 argv[] (аргумент vector) - це масив рядків (строк), де кожен елемент представляє собою окремий аргумент.
+5)	У цьому коді перевіряється, чи був переданий хоча б один аргумент через командний рядок. Якщо так, то значення цього аргументу (argv[1]) присвоюється змінній text.
+6)	 Якщо аргументів немає, то text отримує значення за замовчуванням ("Hello world"). 
+
+7)	Після цього викликається функція count_of_words для підрахунку слів у тексті text.
+
+8)	Ввели команду gcc main.c -o myProgram. Після чого створився файл myProgram.
+9)	Скомпілював код за допомогою команди make all:
+osboxes@osboxes:~/Untitled Folder/lab07_Test_Project (copy)/Test_project_Lab06$ make all
+rm -rf dist
+mkdir dist
+clang  -std=gnu11 -g -Wall -Wextra -Werror -Wformat-security -Wfloat-equal -Wshadow -Wconversion -Wlogical-not-parentheses -Wnull-dereference -Wno-unused-variable -Wno-implicit-int-float-conversion -Werror=vla  src/main.c -o ./dist/main.bin
+clang-format --verbose -dry-run --Werror src/*
+Formatting src/MyProgram
+Formatting src/a.out
+Formatting src/main.c
+clang-tidy src/*.c  -checks=-readability-uppercase-literal-suffix,-readability-magic-numbers,-clang-analyzer-deadcode.DeadStores,-clang-analyzer-security.insecureAPI.rand
+Error while trying to load a compilation database:
+Could not auto-detect compilation database for file "src/main.c"
+No compilation database found in /home/osboxes/Untitled Folder/lab07_Test_Project (copy)/Test_project_Lab06/src or any parent directory
+fixed-compilation-database: Error while opening fixed database: No such file or directory
+json-compilation-database: Error while opening JSON database: No such file or directory
+Running without flags.
+osboxes@osboxes:~/Untitled Folder/lab07_Test_Project (copy)/Test_project_Lab06$
+
+
+10)	Перевіримо роботу коду за допомогою lldb:
+
+osboxes@osboxes:~/Untitled Folder/lab07_Test_Project (copy)/Test_project_Lab06/dist$ lldb main.bin
+(lldb) target create "main.bin"
+Current executable set to '/home/osboxes/Untitled Folder/lab07_Test_Project (copy)/Test_project_Lab06/dist/main.bin' (x86_64).
+(lldb) b 36
+Breakpoint 1: where = main.bin`main + 77 at main.c:36:3, address = 0x000000000040123d
+(lldb) r
+Process 2987 launched: '/home/osboxes/Untitled Folder/lab07_Test_Project (copy)/Test_project_Lab06/dist/main.bin' (x86_64)
+Process 2987 stopped
+* thread #1, name = 'main.bin', stop reason = breakpoint 1.1
+    frame #0: 0x000000000040123d main.bin`main(argc=1, argv=0x00007fffffffdf48) at main.c:36:3
+   33  	  }
+   34  	
+   35  	  result = count_of_words(text);
+-> 36  	  return 0;
+   37  	}
+(lldb) p result 
+(int) $0 = 2
+Резульат лабораторної роботи:
+Код коректно рахує кількість слів у  масиві.
+
+
+
+
+Код програми:
+
+
+int count_of_words(char text[]){
+
+
+   int result = 0; //Змінна для зберігання кількості слів 
+  int isWord = 0; // Флаг, який вказує, чи розпочалось слово
+for (int i = 0; text[i] != '\0'; i++) {  //Перевірка   кожного символа рядка до завершення рядка
+
+//Перевірка на пробіли, табуляції та символом нового рядка, а також  на знак оклику, питання
+    if (text[i] != ' ' && text[i] != '\t' && text[i] != '\n' && text[i] != '!' && text[i] != '?') {
+      if (!isWord) {
+        result++;
+        isWord = 1;
+      }
+    } else {  //Якщо поточний символ дорівнює пробілу, табуляції або символу рядка, то слово закінчилось 
+      isWord = 0;
+    }
+  }
+return result;
+}
+
+
+
+int main(int argc, char *argv[]) {
+    int word_count;
+    char *text;
+    if (argc > 1) {
+        text = argv[1]; // Використовувати текст з аргументу командного рядка
+    } else {
+        text = "text"; // "text" Є за замовчуванням
+    }
+
+   int result = count_of_words(text);
+    return 0;
+}
+Додаткове завдання №1
+
+
+1)	 	Зайшов до файлу main.c і почав роботу;
+Вихідний код програми знаходиться у файлі main.c. 
+
+Вихідний код програми знаходиться у файлі main.c. Точка входу в програму - це функція int main(). Ця функція є основною точкою входу в програму, яка виконує всі необхідні обчислення та операції.
+2)	Створили функцію count_of_pairs, яка шукає кількість пар де одне число більше іншого.
+-Функція приймає варіативне значення аргументів.
+- Тут використовується va_list для доступу до аргументів.
+  - Використовуємо цикл для ітерації через аргументи.
+   - Кожні два аргументи порівнюються, і якщо поточне більше за наступне, збільшується лічильник resultat.
+3)	   - Після закінчення обробки аргументів, повертає значення лічильника. 
+4)	У функції main  скористаємося функцією count_of_pairs, яка буде повертати значення лічильника змінній result.
+
+5)	Ввели команду gcc main.c -o myProgram. Після чого створився файл myProgram.
+6)	Скомпілював код за допомогою команди make all:
+osboxes@osboxes:~/Untitled Folder/lab07(10)/Dodatkove_Zavdannya(1)$ make all
+rm -rf dist
+mkdir dist
+clang  -std=gnu11 -g -Wall -Wextra -Werror -Wformat-security -Wfloat-equal -Wshadow -Wconversion -Wlogical-not-parentheses -Wnull-dereference -Wno-unused-variable -Wno-implicit-int-float-conversion -Werror=vla  src/main.c -o ./dist/main.bin
+clang-format --verbose -dry-run --Werror src/*
+Formatting src/MyProg
+Stack dump:
+0.	Program arguments: clang-format --verbose -dry-run --Werror src/MyProg src/a.out src/main.c 
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(_ZN4llvm3sys15PrintStackTraceERNS_11raw_ostreamE+0x1f)[0x7fefc730d4ff]
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(_ZN4llvm3sys17RunSignalHandlersEv+0x50)[0x7fefc730b7b0]
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(+0x981ac5)[0x7fefc730dac5]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7fefcdadc420]
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(_ZNK4llvm9SourceMgr10GetMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEE+0xe5)[0x7fefc72b1795]
+clang-format[0x40916d]
+clang-format[0x406b64]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3)[0x7fefc6470083]
+clang-format[0x40652e]
+Segmentation fault (core dumped)
+make: *** [Makefile:15: check] Error 139
+
+7)	Перевіримо роботу коду за допомогою lldb:
+osboxes@osboxes:~/Untitled Folder/lab07(10)/Dodatkove_Zavdannya(1)/dist$ lldb main.bin
+(lldb) target create "main.bin"
+Current executable set to '/home/osboxes/Untitled Folder/lab07(10)/Dodatkove_Zavdannya(1)/dist/main.bin' (x86_64).
+(lldb) b 33
+Breakpoint 1: where = main.bin`main + 58 at main.c:33:5, address = 0x000000000040144a
+(lldb) r
+Process 3897 launched: '/home/osboxes/Untitled Folder/lab07(10)/Dodatkove_Zavdannya(1)/dist/main.bin' (x86_64)
+Process 3897 stopped
+* thread #1, name = 'main.bin', stop reason = breakpoint 1.1
+    frame #0: 0x000000000040144a main.bin`main at main.c:33:5
+   30  	    int result = count_of_pairs(7, 4, 3, 5, 4, 2);
+   31  	
+   32  	    
+-> 33  	    return 0;
+   34  	}
+   35  	
+(lldb) p result
+(int) $0 = 4
+Результат лабораторної роботи:
+Програма коректно знаходить пари чисел, де одне число більше іншого.
+
+
+
+
+
+Код програми:
+
+int count_of_pairs(int count, ...) {
+    int resultat = 0;
+    va_list args;   // Tип даних, який використовується для роботи зі змінним списком аргументів у функції.
+    va_start(args, count); // Функція ініціалізує змінну типу va_list, задаючи вказівник args на перший змінний аргумент.
+
+    for (int i = 0; i < count - 1; ++i) {
+        int potochne = va_arg(args, int); //функція, якa використовується для отримання наступного аргумента із списку.
+        int nastupne = va_arg(args, int);
+
+        if (potochne > nastupne) {
+            resultat++;
+        }
+    }
+
+    // Додаємо перевірку для останньої пари (count-1, count)
+    int last = va_arg(args, int);
+    if (last > 0) {
+        resultat++;
+    }
+
+    va_end(args); //функція завершує обробку змінного списку аргументів.
+    return resultat;
+}
+
+int main() {
+    int result = count_of_pairs(7, 4, 3, 5, 4, 2);
+
+    
+    return 0;
+}
+
+
