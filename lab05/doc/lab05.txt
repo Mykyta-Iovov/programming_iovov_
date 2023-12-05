@@ -1,0 +1,116 @@
+Іовов Микита Павлович
+Лабораторна Робота №5
+Циклічні конструкції
+Хід роботи 
+1.  Створив нову папку lab05
+2.  Перемістив потрібні файли для роботи в папку lab05 після чого отримали таку структуру директорій:
+
+└── lab05
+ ├── Makefile 
+├── README.md 
+├── doc 
+ │        └── lab05.txt
+ └── src 
+          └── main.c
+
+
+3.  Зайшов до файлу main.c і почав роботу
+4.  Оголосив змінні  num і   result для збереження цілих чисел
+
+5.  Задав умову за допомогою if:
+
+if (num == 0){
+return 0; // Число нуль не є простим числом
+}
+
+Якщо число num буде дорівнювати нулю, то програма закінчує роботу.
+
+6.  Скористався умовним оператором if:
+  if (num <= 1) {
+    result = 0;
+Якщо число <= 1, то змінна result = 0.
+
+7.  У блоці else ми використовуємо цикл for. 
+int i = 2;: Спочатку визначається змінна “I” i дорівнює 2. Це стартове значення для ітерації. В даному випадку, ми починаємо перевірку з поточного значення i рівного 2.
+i * i <= num;: Це умова циклу. Поки ця умова виконується (тобто квадрат i менше або дорівнює числу num), цикл продовжує виконувати своє тіло. Це означає, що цикл буде тривати до тих пір, поки i не стане більше або рівним квадратному кореню числа num.
+i++: Після кожної ітерації циклу значення змінної i збільшується на 1. Це означає, що на кожній новій ітерації цикл перевіряє наступне число (наприклад, з 2 переходить до 3, потім до 4 і так далі), і перевірка продовжується до тих пір, поки умова циклу не стане невірною.
+
+8.   Далі прописав умову: if (num % i == 0) {
+                result = 0;
+                break;
+
+if num % i == 0: У цьому рядку ми використовуємо оператор залишку від ділення %, щоб перевірити, чи залишок від ділення num на i дорівнює 0. Якщо ця умова виконується, це означає, що число num ділиться на i без залишку.
+result = 0;: Якщо знайдено дільник, то змінна result встановлюється в 0. Це означає, що програма визнає число num як складене (не просте), оскільки знайдено інший дільник, окрім 1 і самого числа num.
+break;: Після встановлення result в 0 використовується оператор break, щоб вийти із циклу. Це означає, що немає потреби далі перевіряти інші значення i, оскільки ми вже знайшли дільник для числа num. Після виконання break, виконання програми переходить до наступної інструкції після циклу for.
+9.  Після чого, скористався оператором if:
+ if (result == 1) {
+  //Число є простим 
+}
+
+Else {
+//число не є простим
+}
+Якщо змінна result буде дорівнювати 1, то число є простим.
+В інакшому випадку число не є простим.
+
+10.  Ввели команду gcc main.c -o myProgram. Після чого створився файл myProgram;
+
+11.  Скомпілював код за допомогою команди make all:
+rm -rf dist
+mkdir dist
+clang  -std=gnu11 -g -Wall -Wextra -Werror -Wformat-security -Wfloat-equal -Wshadow -Wconversion -Wlogical-not-parentheses -Wnull-dereference -Wno-unused-variable -Wno-implicit-int-float-conversion -Werror=vla  src/main.c -o ./dist/main.bin
+clang-format --verbose -dry-run --Werror src/*
+Formatting src/a.out
+Stack dump:
+0. Program arguments: clang-format --verbose -dry-run --Werror src/a.out src/main.c src/myProgram 
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(_ZN4llvm3sys15PrintStackTraceERNS_11raw_ostreamE+0x1f)[0x7f3751acd4ff]
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(_ZN4llvm3sys17RunSignalHandlersEv+0x50)[0x7f3751acb7b0]
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(+0x981ac5)[0x7f3751acdac5]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7f375829c420]
+/lib/x86_64-linux-gnu/libLLVM-10.so.1(_ZNK4llvm9SourceMgr10GetMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEE+0xe5)[0x7f3751a71795]
+clang-format[0x40916d]
+clang-format[0x406b64]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3)[0x7f3750c30083]
+clang-format[0x40652e]
+Segmentation fault (core dumped)
+make: *** [Makefile:15: check] Error 139
+
+
+
+Код програми:
+#include <stdio.h>
+
+int main() {
+  int num = 10;
+  int result = 1; // Початкове значення result - 1 (припускаємо, що число є простим)
+
+if (num == 0){
+return 0; // Число нуль не є простим 
+}
+  // Перевірка чи є число менше або дорівнює 2
+  if (num <= 1) {
+    result = 0; // Якщо число менше або дорівнює 1, то воно не є простим
+
+  } else {
+    for (int i = 2; i * i <= num; i++) {
+
+      if (num % i == 0) {
+        result = 0; // Знайдено дільник, отже число не є простим
+        break;
+      }
+    }
+  }
+
+
+  if (result == 1) {
+    // число є простим
+  }
+
+
+  else {
+    //число не є простим
+  }
+
+
+  return 0;
+}
