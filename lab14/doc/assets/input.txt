@@ -1,5 +1,0 @@
-
-2
-1 Берізка 250 Іванов Іван ivanov@example.com 0
-0 Каразіна 6000 Петров Петро petrov@example.com 1
-
